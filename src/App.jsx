@@ -11,7 +11,7 @@ import { Toaster } from 'react-hot-toast';
 function App() {
   
   useEffect(() => {
-    // Load CSS files from public/vendor
+    //& Load CSS files from public/vendor
     const cssFiles = [
       '/vendor/bootstrap/css/bootstrap.min.css',
       '/vendor/bootstrap-icons/bootstrap-icons.css',
@@ -28,7 +28,7 @@ function App() {
       document.head.appendChild(link);
     });
 
-    // Load JS files from public/vendor
+    //& Load JS files from public/vendor
     const jsFiles = [
       '/vendor/bootstrap/js/bootstrap.bundle.min.js',
       '/vendor/aos/aos.js',

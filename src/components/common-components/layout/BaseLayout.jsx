@@ -84,7 +84,7 @@ const Navbar = lazy(() => import('@/components/common-components/layout/Navbar')
 const BaseLayout = () => {
 
     return (
-        <section>
+        <>
             <div className="wrapper" id="mainComponentDiv">
                 <Navbar />
                 <div id="content">
@@ -95,7 +95,7 @@ const BaseLayout = () => {
                     </Loader>
                 </div>
             </div>
-        </section>
+        </>
     );
 };
 

@@ -94,7 +94,6 @@ const LandingPage = () => {
 
     // Cleanup
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       clearInterval(interval);
     };
   }, []);

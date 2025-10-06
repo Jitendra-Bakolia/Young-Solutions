@@ -1,6 +1,5 @@
 import { lazy } from 'react'
 
-const Home = lazy(() => import('@/components/unprotected/Home'));
 const LandingPage = lazy(() => import('@/components/unprotected/landing-page/LandingPage'));
 
 /**
