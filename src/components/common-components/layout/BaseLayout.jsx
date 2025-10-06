@@ -79,13 +79,14 @@ import React, { lazy, useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 
 const Loader = lazy(() => import('@/components/common-components/loader/Loader'));
+const Navbar = lazy(() => import('@/components/common-components/layout/Navbar'));
 
 const BaseLayout = () => {
 
     return (
         <section>
             <div className="wrapper" id="mainComponentDiv">
-                <h1>Side Menu</h1>
+                <Navbar />
                 <div id="content">
                     <Loader >
                         <div>
