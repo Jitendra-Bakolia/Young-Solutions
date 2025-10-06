@@ -1,0 +1,14 @@
+const SYSTEM_USER_TYPE = {
+    ADMIN: 1,
+    PARTNER: 2,
+    CLIENT: 3,
+    ISV_PARTNER: 4,
+    ISA_PARTNER: 5,
+    REFERRAL_PARTNER: 6,
+    USER_MANAGEMENT: 7,
+    ALTAIR_CLIENT: 8
+}
+
+export {
+    SYSTEM_USER_TYPE
+}
