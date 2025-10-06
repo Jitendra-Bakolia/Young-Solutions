@@ -1,13 +1,14 @@
 import { lazy } from 'react'
 
 const Home = lazy(() => import('@/components/unprotected/Home'));
+const LandingPage = lazy(() => import('@/components/unprotected/landing-page/LandingPage'));
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
  */
 const UnProtectedRoutes = [
 
-    { path: "/", element: <Home /> },
+    { path: "/", element: <LandingPage /> },
 
 
     // { path: "/", element: <Enroll type={""} /> },
