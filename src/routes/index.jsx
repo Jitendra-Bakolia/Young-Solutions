@@ -45,7 +45,6 @@ const wrapRoutesWithProtection = (routes, systemUserTypes, currentSystemUserType
   }));
 
 const Routes = () => {
-  console.log("🙈 🙉 🙊 Line 45 ~  :  ");
   // const { systemUserTypeId } = selectCurrentUser(); // Selector to fetch current user info
 
   //& Define routes with respective protection and loaders

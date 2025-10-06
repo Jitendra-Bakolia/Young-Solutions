@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Header from './Header';
 import Hero from './Hero';
 import About from './About';
 import Stats from './Stats';
@@ -13,31 +12,49 @@ import Team from './Team';
 import Contact from './Contact';
 import Footer from './Footer';
 
-// Import CSS files
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import 'aos/dist/aos.css';
-import 'glightbox/dist/css/glightbox.min.css';
-
 const LandingPage = () => {
   useEffect(() => {
-    // Initialize AOS
-    import('aos').then((AOS) => {
-      AOS.init({
-        duration: 600,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-      });
-    });
+    // Initialize AOS when library is loaded from vendor
+    const initAOS = () => {
+      if (window.AOS) {
+        window.AOS.init({
+          duration: 600,
+          easing: 'ease-in-out',
+          once: true,
+          mirror: false
+        });
+      }
+    };
 
-    // Initialize GLightbox
-    import('glightbox').then((GLightboxModule) => {
-      const GLightbox = GLightboxModule.default;
-      GLightbox({
-        selector: '.glightbox'
-      });
-    });
+    // Initialize GLightbox when library is loaded from vendor
+    const initGLightbox = () => {
+      if (window.GLightbox) {
+        window.GLightbox({
+          selector: '.glightbox'
+        });
+      }
+    };
+
+    // Wait for libraries to load from vendor files
+    const checkAndInitLibraries = () => {
+      if (window.AOS) {
+        initAOS();
+      }
+      if (window.GLightbox) {
+        initGLightbox();
+      }
+    };
+
+    // Check immediately
+    checkAndInitLibraries();
+    
+    // Set up interval to check periodically until libraries are loaded
+    const interval = setInterval(() => {
+      checkAndInitLibraries();
+      if (window.AOS && window.GLightbox) {
+        clearInterval(interval);
+      }
+    }, 100);
 
     // Add scroll event listener for header
     const handleScroll = () => {
@@ -78,12 +95,12 @@ const LandingPage = () => {
     // Cleanup
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      clearInterval(interval);
     };
   }, []);
 
   return (
     <div className="index-page">
-      <Header />
       <main className="main">
         <Hero />
         <About />

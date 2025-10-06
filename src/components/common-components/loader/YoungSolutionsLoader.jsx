@@ -1,5 +1,4 @@
 const YoungSolutionsLoader = ({ from }) => {
-  console.log(`🙈 🙉 🙊 ~ YoungSolutionsLoader.jsx:2 ~ from : `, from)
   const resetCacheStyle = { display: 'none' }; //! Removed !important as it's not supported in React
 
   return (

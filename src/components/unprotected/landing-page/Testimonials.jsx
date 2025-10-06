@@ -1,8 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
+import React, { useEffect } from 'react';
 
 const Testimonials = () => {
   const testimonials = [
@@ -49,45 +45,85 @@ const Testimonials = () => {
     ));
   };
 
+  useEffect(() => {
+    // Initialize Swiper when the library is loaded from vendor files
+    const initSwiper = () => {
+      if (window.Swiper) {
+        const swiperElement = document.querySelector('.init-swiper');
+        if (swiperElement) {
+          new window.Swiper(swiperElement, {
+            loop: true,
+            speed: 600,
+            autoplay: {
+              delay: 5000,
+              disableOnInteraction: false,
+            },
+            slidesPerView: "auto",
+            pagination: {
+              el: '.swiper-pagination',
+              type: 'bullets',
+              clickable: true,
+            }
+          });
+        }
+      }
+    };
+
+    // Wait for Swiper to be loaded from vendor files
+    if (window.Swiper) {
+      initSwiper();
+    } else {
+      const interval = setInterval(() => {
+        if (window.Swiper) {
+          initSwiper();
+          clearInterval(interval);
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
     <section id="testimonials" className="testimonials section dark-background">
       <img src="/img/testimonials-bg.jpg" className="testimonials-bg" alt="" />
 
       <div className="container" data-aos="fade-up" data-aos-delay="100">
-        <Swiper
-          modules={[Autoplay, Pagination]}
-          loop={true}
-          speed={600}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          slidesPerView="auto"
-          pagination={{
-            el: '.swiper-pagination',
-            type: 'bullets',
-            clickable: true,
-          }}
-          className="init-swiper"
-        >
-          {testimonials.map((testimonial, index) => (
-            <SwiperSlide key={index}>
-              <div className="testimonial-item">
-                <img src={testimonial.image} className="testimonial-img" alt={testimonial.name} />
-                <h3>{testimonial.name}</h3>
-                <h4>{testimonial.position}</h4>
-                <div className="stars">
-                  {renderStars(testimonial.rating)}
+        <div className="swiper init-swiper">
+          <script type="application/json" className="swiper-config">
+            {JSON.stringify({
+              loop: true,
+              speed: 600,
+              autoplay: {
+                delay: 5000
+              },
+              slidesPerView: "auto",
+              pagination: {
+                el: ".swiper-pagination",
+                type: "bullets",
+                clickable: true
+              }
+            })}
+          </script>
+          <div className="swiper-wrapper">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="swiper-slide">
+                <div className="testimonial-item">
+                  <img src={testimonial.image} className="testimonial-img" alt={testimonial.name} />
+                  <h3>{testimonial.name}</h3>
+                  <h4>{testimonial.position}</h4>
+                  <div className="stars">
+                    {renderStars(testimonial.rating)}
+                  </div>
+                  <p>
+                    <i className="bi bi-quote quote-icon-left"></i>
+                    <span>{testimonial.text}</span>
+                    <i className="bi bi-quote quote-icon-right"></i>
+                  </p>
                 </div>
-                <p>
-                  <i className="bi bi-quote quote-icon-left"></i>
-                  <span>{testimonial.text}</span>
-                  <i className="bi bi-quote quote-icon-right"></i>
-                </p>
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+            ))}
+          </div>
+          <div className="swiper-pagination"></div>
+        </div>
       </div>
     </section>
   );
