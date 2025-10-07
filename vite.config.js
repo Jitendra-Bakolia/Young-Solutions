@@ -83,9 +83,9 @@ export default defineConfig(({ command, mode }) => {
       },
       rollupOptions: {
         output: {
-          entryFileNames: `assets/[hash:22]-${Date.now()}.js`,
-          chunkFileNames: `assets/[hash:22].js`,
-          assetFileNames: `assets/[hash:22].[ext]`,
+          entryFileNames: `assets/[hash:8]-${Date.now()}.js`,
+          chunkFileNames: `assets/[hash:8].js`,
+          assetFileNames: `assets/[hash:8].[ext]`,
         }
       }
     }
