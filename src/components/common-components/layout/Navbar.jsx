@@ -25,7 +25,7 @@ const Header = () => {
     <header id="header" className={`header d-flex align-items-center fixed-top ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container-fluid container-xl position-relative d-flex align-items-center">
         <a href="#hero" className="logo d-flex align-items-center me-auto" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}>
-          <h1 className="sitename">Dewi</h1>
+          <h1 className="sitename">Young Solutions</h1>
         </a>
 
         <nav id="navmenu" className="navmenu">
