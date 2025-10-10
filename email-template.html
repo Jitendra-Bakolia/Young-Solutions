@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Message from Young Solutions</title>
+    <style>
+        body,
+        table,
+        td,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        table {
+            border-collapse: collapse !important;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .email-container {
+            width: 100%;
+            background: #ffffff;
+        }
+
+        .email-header {
+            background: linear-gradient(90deg, #6a1b9a, #42a5f5);
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .email-header img {
+            max-height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .email-header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .email-body {
+            padding: 30px 25px;
+            color: #333333;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .email-body h2 {
+            color: #6a1b9a;
+            font-size: 20px;
+            margin-top: 0;
+        }
+
+        .email-body p {
+            margin-bottom: 10px;
+        }
+
+        .user-info {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .user-info p {
+            margin: 5px 0;
+        }
+
+        .email-table {
+            width: 100%;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .email-table th,
+        .email-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .email-table th {
+            background: #6a1b9a;
+            color: #ffffff;
+        }
+
+        .email-table tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+
+        .email-footer {
+            padding: 15px 25px;
+            text-align: center;
+            font-size: 14px;
+            color: #888888;
+        }
+
+        /* Make table responsive for mobile */
+        @media screen and (max-width: 600px) {
+
+            .email-body,
+            .email-footer {
+                padding: 20px 15px;
+            }
+
+            .email-header h1 {
+                font-size: 20px;
+            }
+
+            .email-table th,
+            .email-table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <table class="email-container">
+                        <!-- Header -->
+                        <tr>
+                            <td class="email-header"
+                                style="background: linear-gradient(90deg, #6a1b9a, #42a5f5); padding: 10px; margin: 5px;">
+                                <table align="center" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <!-- Logo -->
+                                        <td valign="middle">
+                                            <img src="https://young-solutions.vercel.app/img/Young-Solutions-Nav.png" alt="Young Solutions Logo" style="max-height:50px; display:block;">
+                                        </td>
+                                        <!-- Company Name -->
+                                        <td valign="middle"
+                                            style="padding-left:0; color:#ffffff; font-size:28px; font-weight:750; font-family:Helvetica, Arial, sans-serif;">
+                                            Young Solutions
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+
+                        <!-- Body -->
+                        <tr>
+                            <td class="email-body">
+                                <h2>New Message Received</h2>
+                                <p>You have received a new message from your website contact form:</p>
+
+                                <div class="user-info">
+                                    <p><strong>Name:</strong> {{userName}}</p>
+                                    <p><strong>Email:</strong> {{userEmail}}</p>
+                                    <p><strong>Phone:</strong> {{userPhone}}</p>
+                                    <p><strong>Message / Instructions:</strong></p>
+                                    <p>{{userInstructions}}</p>
+                                </div>
+
+                                <!-- User-selected items table -->
+                                {{{itemTable}}}
+
+                                <p>Please respond to the user as soon as possible.</p>
+                            </td>
+                        </tr>
+
+                        <!-- Footer -->
+                        <tr>
+                            <td class="email-footer">
+                                &copy; 2025 Young Solutions. All rights reserved.<br>
+                                <a href="mailto:support@youngsolutions.com">support@youngsolutions.com</a>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+</html>
