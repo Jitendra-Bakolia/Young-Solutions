@@ -249,8 +249,8 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
-  margin-right: 8px;
+  max-height: 50px;
+  margin-right: 4px;
 }
 
 .header .logo h1 {
@@ -940,6 +940,13 @@ section,
   height: 100%;
   object-fit: cover;
   z-index: 1;
+}
+
+.site-name {
+  color: white;
+  margin-top: 12px;
+  font-weight: 700;
+  font-size: 21px;
 }
 
 .hero:before {
@@ -2144,3 +2151,6 @@ section,
 .Futura-PT-Demi {
   font-family: 'Futura PT Demi' !important;
 }
+/* .starter-section {
+  Add your styles here
+} */

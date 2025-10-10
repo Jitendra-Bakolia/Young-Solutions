@@ -25,7 +25,7 @@ const Header = () => {
     <header id="header" className={`header d-flex align-items-center fixed-top ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container-fluid container-xl position-relative d-flex align-items-center">
         <a href="#hero" className="logo d-flex align-items-center me-auto" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}>
-          <img src="/img/Young-Solutions-Nav.png" alt="Logo" /> Young-Solutions
+          <img src="/img/Young-Solutions-Nav.png" alt="Logo" /><span className='site-name'>Young Solutions</span>
         </a>
 
         <nav id="navmenu" className="navmenu">
@@ -35,7 +35,7 @@ const Header = () => {
             <li><a href="#services" className={activeSection === 'services' ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('services'); }}>Services</a></li>
             <li><a href="#portfolio" className={activeSection === 'portfolio' ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('portfolio'); }}>Portfolio</a></li>
             <li><a href="#team" className={activeSection === 'team' ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('team'); }}>Team</a></li>
-            <li className="dropdown">
+            {/* <li className="dropdown">
               <a href="#"><span>Dropdown</span> <i className="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
                 <li><a href="#">Dropdown 1</a></li>
@@ -53,7 +53,7 @@ const Header = () => {
                 <li><a href="#">Dropdown 3</a></li>
                 <li><a href="#">Dropdown 4</a></li>
               </ul>
-            </li>
+            </li> */}
             <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>Contact</a></li>
           </ul>
           <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>
