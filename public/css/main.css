@@ -1844,3 +1844,77 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+
+
+/* Main Loader Start */
+.main-loader {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.circle-container {
+  display: flex;
+  gap: 20px; 
+}
+
+.animated-circle {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, #0efff8, #1310ff);
+  border-radius: 50%; 
+  display: inline-flex;     
+  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.animated-circle.one {
+  animation: bounce-one 1.5s ease-in-out infinite;
+}
+
+.animated-circle.two {
+  animation: bounce-two 1.5s ease-in-out infinite;
+}
+
+.animated-circle.three {
+  animation: bounce-three 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce-one {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes bounce-two {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+@keyframes bounce-three {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-25px);
+  }
+}
+
+/* Main Loader END */
