@@ -1,48 +1,146 @@
 import emailjs from "emailjs-com";
+import toasty from "./utils/toasty.util";
+import { TYPE } from "./constants/status.constants";
+import { OWNER_EMAILS } from "./constants/common.constants";
 
 /**
  * Sends an email using EmailJS.
- * @param {Object} params - email data.
- * @param {string} params.to_name - Receiver name.
- * @param {string} params.from_name - Sender name.
- * @param {string} params.message - Email message.
- * @param {string} params.email - Sender email (optional).
- * @param {string} params.subject - Email subject (optional).
+ * @param {string} params.userName - Sender's name.
+ * @param {string} params.userEmail - Sender's email.
+ * @param {string} params.userPhone - Sender's phone number.
+ * @param {string} params.userInstructions - Additional instructions from the sender.
+ * @param {string} itemTable - HTML string representing a table of items.
+ * @param {Array<string>} receiverEmails - List of receiver email addresses.
  */
-export const sendEmail = async (params = {}) => {
+export const sendEmail = async (params, itemTable = "", type = TYPE.ORDER, receiverEmails = OWNER_EMAILS) => {
     try {
+        itemTable = `<table class="email-table">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Other Info</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Iphone 6</td>
+                                <td>3</td>
+                                <td>34000</td>
+                                <td>1 in gray, 2 in black</td>
+                            </tr>
+                            <tr>
+                                <td>Samsung Galaxy S10</td>
+                                <td>2</td>
+                                <td>28000</td>
+                                <td>Both in white</td>
+                            </tr>
+                            <tr>
+                                <td>MacBook Pro</td>
+                                <td>1</td>
+                                <td>120000</td>
+                                <td>Silver, urgent</td>
+                            </tr>
+                            <tr>
+                                <td>AirPods</td>
+                                <td>4</td>
+                                <td>18000</td>
+                                <td>2 black, 2 white</td>
+                            </tr>
+                            <tr>
+                                <td>iPad Mini</td>
+                                <td>2</td>
+                                <td>40000</td>
+                                <td>1 gray, 1 gold</td>
+                            </tr>
+                            <tr>
+                                <td>Apple Watch</td>
+                                <td>5</td>
+                                <td>90000</td>
+                                <td>2 black, 3 white</td>
+                            </tr>
+                            <tr>
+                                <td>Google Pixel 6</td>
+                                <td>3</td>
+                                <td>45000</td>
+                                <td>All in blue</td>
+                            </tr>
+                            <tr>
+                                <td>Dell XPS 13</td>
+                                <td>2</td>
+                                <td>95000</td>
+                                <td>Silver, 1 for office, 1 for personal</td>
+                            </tr>
+                            <tr>
+                                <td>HP Spectre x360</td>
+                                <td>1</td>
+                                <td>100000</td>
+                                <td>Dark gray, for design work</td>
+                            </tr>
+                            <tr>
+                                <td>OnePlus 9</td>
+                                <td>4</td>
+                                <td>36000</td>
+                                <td>2 black, 2 green</td>
+                            </tr>
+                            <tr>
+                                <td>iMac 24"</td>
+                                <td>1</td>
+                                <td>150000</td>
+                                <td>Blue color, office use</td>
+                            </tr>
+                            <tr>
+                                <td>Kindle Paperwhite</td>
+                                <td>3</td>
+                                <td>12000</td>
+                                <td>2 black, 1 white</td>
+                            </tr>
+                            <tr>
+                                <td>Logitech Mouse</td>
+                                <td>6</td>
+                                <td>6000</td>
+                                <td>3 black, 3 gray</td>
+                            </tr>
+                            <tr>
+                                <td>Mechanical Keyboard</td>
+                                <td>2</td>
+                                <td>15000</td>
+                                <td>Both in white</td>
+                            </tr>
+                            <tr>
+                                <td>External Hard Drive</td>
+                                <td>5</td>
+                                <td>25000</td>
+                                <td>All black</td>
+                            </tr>
+                        </tbody>
+                    </table>`
 
 
-        params = {
-            from_name: "John Doe",
-            email: "jitendrabakoliaagami@gmail.com",
-            message: "Hello, I'm interested in your services",
-            subject: "Contact Form Inquiry"
+        if (receiverEmails.length === 0) {
+            console.error("No receiver email addresses provided.");
+            return;
         }
-
-        console.log("🙈 🙉 🙊 Line 14 ~  :  ", params);
-        // Validate required parameters
-        if (!params.from_name || !params.message) {
-            throw new Error("Missing required parameters: from_name and message are required");
-        }
-
-        console.log("� Sending email with params:", params);
         
+        if (params.userName.trim() === "" || params.userEmail.trim() === "" || params.userPhone.trim() === "") {
+            toasty.error("Please fill all required fields.");
+            return;
+        }
+
+        if (type === TYPE.ORDER && itemTable.trim() === "") {
+            toasty.error("Please provide the list of items for the order.");
+            return;
+        }
+
+        toasty.info("In progress...");
+
         const templateParams = {
-            to_name: params.to_name || "Support Team",
-            from_name: params.from_name,
-            from_email: params.email || "",
-            reply_to: params.email || "",
-            user_email: params.email || "",
-            message: params.message,
-            user_message: params.message, // Alternative parameter name
-            custom_message: params.message, // Another alternative
-            subject: params.subject || "Contact Form Message",
-            user_name: params.from_name,
-            name: params.from_name,
-            email: params.email || ""
+            ...params,
+            ...(itemTable && { itemTable: itemTable }),
+            subject: type === TYPE.ORDER ? "New Order Received" : "General Inquiry",
+            email: receiverEmails.join(", "),
         };
-        console.log(`🙈 🙉 🙊 ~ email.helper.js:29 ~ templateParams : `, templateParams)
 
         const result = await emailjs.send(
             "service_sqo7mkq", //& 🔹 Your EmailJS service ID
@@ -50,58 +148,15 @@ export const sendEmail = async (params = {}) => {
             templateParams,
             "eplxzhMqNRXm0zkhj" //& 🔹 Your EmailJS public key
         );
-        
-        console.log("✅ Email sent successfully:", result.text);
+
+        toasty.success("Email sent successfully!");
         return { success: true, result, message: "Email sent successfully!" };
     } catch (error) {
-        console.error("❌ Failed to send email:", error);
-        return { 
-            success: false, 
+        toasty.error("Failed to send email!");
+        return {
+            success: false,
             error: error.message || "Failed to send email",
-            details: error 
+            details: error
         };
     }
-};
-
-//& Usage examples:
-/**
- * Send contact form email
- * @example
- * const contactData = {
- *   from_name: "John Doe",
- *   email: "john@example.com", 
- *   message: "Hello, I'm interested in your services",
- *   subject: "Contact Form Inquiry"
- * };
- * const result = await sendEmail(contactData);
- */
-
-/**
- * Send newsletter subscription email
- * @param {Object} params - subscription data
- * @param {string} params.email - Subscriber email
- * @param {string} params.name - Subscriber name
- */
-export const sendNewsletterEmail = async (params = {}) => {
-    return await sendEmail({
-        from_name: params.name || "Newsletter Subscriber",
-        email: params.email,
-        message: `Thank you for subscribing to our newsletter! Welcome ${params.name || 'there'}!`,
-        subject: "Newsletter Subscription Confirmation",
-        to_name: "Newsletter Team"
-    });
-};
-
-/**
- * Send contact form submission
- * @param {Object} formData - Contact form data
- */
-export const sendContactForm = async (formData) => {
-    return await sendEmail({
-        from_name: formData.name,
-        email: formData.email,
-        message: formData.message,
-        subject: formData.subject || "Website Contact Form",
-        to_name: "Support Team"
-    });
 };

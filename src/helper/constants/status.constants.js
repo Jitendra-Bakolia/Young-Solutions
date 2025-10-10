@@ -37,7 +37,13 @@ const STATUS = {
     CLOSED_INCOMPLETE: 40,
 }
 
+const TYPE = {
+    SUPPORT: 1,
+    ORDER: 2
+}
+
 
 export {
-    STATUS
+    STATUS,
+    TYPE
 }
