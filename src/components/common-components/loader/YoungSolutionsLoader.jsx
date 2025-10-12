@@ -4,12 +4,12 @@ const YoungSolutionsLoader = ({ from }) => {
   return (
     <>
       <div className={`page-loader`} id="youngSolutionsLoader">
-        <img src="/img/Young-Solutions-Favicon.png" alt="Loading..." sizes="" srcset="" />
+        <img src="/img/Young-Solutions-Favicon.png" alt="Loading..." sizes="" srcSet="" />
         {/* <div className="main-loader"> */}
-        <div class="circle-container">
-          <div class="animated-circle one"></div>
-          <div class="animated-circle two"></div>
-          <div class="animated-circle three"></div>
+        <div className="circle-container">
+          <div className="animated-circle one"></div>
+          <div className="animated-circle two"></div>
+          <div className="animated-circle three"></div>
         </div>
         {/* </div> */}
         <p className="Futura-PT-Book mt-1">{"Please hold on!"}</p>

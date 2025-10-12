@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { sendEmail } from '@/helper/email.helper';
 
 const Hero = () => {
   useEffect(() => {
@@ -27,6 +28,19 @@ const Hero = () => {
           <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" className="glightbox btn-watch-video d-flex align-items-center">
             <i className="bi bi-play-circle"></i><span>Watch Video</span>
           </a>
+          {/* <button
+            className="btn-contact"
+            onClick={() =>
+              sendEmail({
+                userName: "Jitendra Bakolia",
+                userEmail: "jitendrabakoliaagami@gmail.com",
+                userPhone: "1234567890",
+                userInstructions: "Please make sure the items are properly packed, I’ve had issues with damages before.",
+              })
+            }
+          >
+            Contact Us
+          </button> */}
         </div>
       </div>
     </section>
