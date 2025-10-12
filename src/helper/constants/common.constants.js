@@ -10,6 +10,7 @@ const SYSTEM_USER_TYPE = {
 }
 
 const OWNER_EMAILS = [
+    // "mr.akofficial2002@gmail.com",
     // "jitendrabakoliaagami@gmail.com",
     // "jitendrabakolia.dev@gmail.com"
     // "youngsolutions27@gmail.com",

@@ -1980,8 +1980,10 @@ section,
 }
 
 .page-loader img {
-  width: 200px;
-  height: 200px;
+  margin-left: 30px;
+  margin-bottom: 26px;
+  width: 150px;
+  height: 150px;
 }
 
 .Futura-PT-Book {
@@ -2155,3 +2157,5 @@ section,
 /* .starter-section {
   Add your styles here
 } */
+
+

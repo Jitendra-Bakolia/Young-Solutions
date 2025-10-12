@@ -1,40 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { sendEmail } from "@/helper/email.helper"
+import { TYPE } from "@/helper/constants/status.constants";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
   const [isLoading, setIsLoading] = useState(false);
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const onSubmit = (data) => {
     setIsLoading(true);
-    setSuccessMessage('');
-    setErrorMessage('');
+    console.log("🚀 ~ onSubmit ~ data:", data)
 
-    try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      setSuccessMessage('Your message has been sent. Thank you!');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      setErrorMessage('There was an error sending your message. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
+    // sendEmail(data, TYPE.SUPPORT)
+
+    reset(); // Reset form after success
+    setIsLoading(false)
   };
 
   return (
@@ -46,6 +32,7 @@ const Contact = () => {
 
       <div className="container" data-aos="fade-up" data-aos-delay="100">
         <div className="row gy-4">
+          {/* Info Section */}
           <div className="col-lg-6">
             <div className="row gy-4">
               <div className="col-lg-12">
@@ -74,64 +61,85 @@ const Contact = () => {
             </div>
           </div>
 
+          {/* Form Section */}
           <div className="col-lg-6">
-            <form onSubmit={handleSubmit} className="php-email-form" data-aos="fade-up" data-aos-delay="500">
+            <form onSubmit={handleSubmit(onSubmit)} className="php-email-form" data-aos="fade-up" data-aos-delay="500">
               <div className="row gy-4">
+                {/* Name */}
                 <div className="col-md-6">
                   <input
                     type="text"
-                    name="name"
-                    className="form-control"
+                    className={`form-control ${errors.userName ? "is-invalid" : ""}`}
                     placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
+                    {...register("userName", {
+                      required: "Name is required",
+                      minLength: { value: 3, message: "Name must be at least 3 characters" },
+                    })}
                   />
+                  {errors.userName && <div className="invalid-feedback">{errors.userName.message}</div>}
                 </div>
 
+                {/* Email */}
                 <div className="col-md-6">
                   <input
                     type="email"
-                    className="form-control"
-                    name="email"
+                    className={`form-control ${errors.userEmail ? "is-invalid" : ""}`}
                     placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
+                    {...register("userEmail", {
+                      required: "Email is required",
+                      pattern: { value: /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/, message: "Invalid email address" },
+                    })}
                   />
+                  {errors.userEmail && <div className="invalid-feedback">{errors.userEmail.message}</div>}
                 </div>
 
-                <div className="col-md-12">
+                {/* Mobile Number */}
+                <div className="col-md-6">
                   <input
                     type="text"
-                    className="form-control"
-                    name="subject"
-                    placeholder="Subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
+                    className={`form-control ${errors.userPhone ? "is-invalid" : ""}`}
+                    placeholder="Mobile Number"
+                    {...register("userPhone", {
+                      required: "Mobile number is required",
+                      pattern: { value: /^[0-9]{10}$/, message: "Mobile number must be 10 digits" },
+                    })}
                   />
+                  {errors.userPhone && <div className="invalid-feedback">{errors.userPhone.message}</div>}
                 </div>
 
+                {/* Subject */}
+                <div className="col-md-6">
+                  <input
+                    type="text"
+                    className={`form-control ${errors.userSubject ? "is-invalid" : ""}`}
+                    placeholder="Subject"
+                    {...register("userSubject", {
+                      required: "Subject is required",
+                      minLength: { value: 3, message: "Subject must be at least 3 characters" },
+                    })}
+                  />
+                  {errors.userSubject && <div className="invalid-feedback">{errors.userSubject.message}</div>}
+                </div>
+
+                {/* Message */}
                 <div className="col-md-12">
                   <textarea
-                    className="form-control"
-                    name="message"
+                    className={`form-control ${errors.userInstructions ? "is-invalid" : ""}`}
                     rows="6"
                     placeholder="Message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
+                    {...register("userInstructions", {
+                      required: "Message is required",
+                      minLength: { value: 10, message: "Message must be at least 10 characters" },
+                    })}
                   ></textarea>
+                  {errors.userInstructions && <div className="invalid-feedback">{errors.userInstructions.message}</div>}
                 </div>
 
+                {/* Status & Submit */}
                 <div className="col-md-12 text-center">
                   {isLoading && <div className="loading">Loading</div>}
-                  {errorMessage && <div className="error-message">{errorMessage}</div>}
-                  {successMessage && <div className="sent-message">{successMessage}</div>}
-                  
                   <button type="submit" disabled={isLoading}>
-                    {isLoading ? 'Sending...' : 'Send Message'}
+                    {isLoading ? "Sending..." : "Send Message"}
                   </button>
                 </div>
               </div>

@@ -4,7 +4,7 @@ const YoungSolutionsLoader = ({ from }) => {
   return (
     <>
       <div className={`page-loader`} id="youngSolutionsLoader">
-        <img src="/img/Young-Solutions-Favicon.png" alt="Loading..." sizes="" srcSet="" />
+        <img src="/img/favicon.png" alt="Loading..." sizes="" srcSet="" />
         {/* <div className="main-loader"> */}
         <div className="circle-container">
           <div className="animated-circle one"></div>
