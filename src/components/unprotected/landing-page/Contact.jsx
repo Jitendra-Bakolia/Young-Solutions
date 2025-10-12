@@ -13,12 +13,11 @@ const Contact = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     setIsLoading(true);
     console.log("🚀 ~ onSubmit ~ data:", data)
 
-    // await sendEmail(data, TYPE.SUPPORT);
-
+    await sendEmail(data, TYPE.SUPPORT);
     reset(); // Reset form after success
     setIsLoading(false)
   };
