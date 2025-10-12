@@ -17,7 +17,7 @@ const Contact = () => {
     setIsLoading(true);
     console.log("🚀 ~ onSubmit ~ data:", data)
 
-    // sendEmail(data, TYPE.SUPPORT)
+    // await sendEmail(data, TYPE.SUPPORT);
 
     reset(); // Reset form after success
     setIsLoading(false)
