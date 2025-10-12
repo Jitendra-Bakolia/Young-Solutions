@@ -25,7 +25,7 @@
   /* Default color used for the majority of the text content across the entire website */
   --heading-color: #273d4e;
   /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #ff4a17;
+  --accent-color: #418dfe;
   /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff;
   /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
@@ -37,7 +37,7 @@
 :root {
   --nav-color: #e5eaee;
   /* The default color of the main navmenu links */
-  --nav-hover-color: #ff4a17;
+  --nav-hover-color: #418dfe;
   /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff;
   /* Used as the background color for mobile navigation menu */
@@ -45,7 +45,7 @@
   /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #444444;
   /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #ff4a17;
+  --nav-dropdown-hover-color: #418dfe;
   /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
@@ -1985,7 +1985,7 @@ section,
 }
 
 .Futura-PT-Book {
-  font-family: 'Futura PT Book';
+  font-family: 'Roboto', 'system-ui';
 }
 
 .d-flex {
@@ -2129,28 +2129,29 @@ section,
   padding: 10px;
   cursor: pointer;
   border: solid 1px #007bff;
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
 }
 
 .btn-blue-delete:hover {
-  color: #8e24aa;
+  color: #003cff;
   border-radius: 4px;
   border: none;
   font-size: 14px;
   padding: 10px;
   cursor: pointer;
-  border: solid 1px #fad5bc;
-  -webkit-appearance: none;
+  border: solid 1px #050505;
+  /* -webkit-appearance: none; */
 }
 
 .btn-blue-delete:hover {
-  color: #8e24aa;
+  color: #003cff;
   background-color: #fff9f5;
 }
 
 .Futura-PT-Demi {
   font-family: 'Futura PT Demi' !important;
 }
+
 /* .starter-section {
   Add your styles here
 } */
