@@ -10,14 +10,15 @@ const Contact = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm();
 
   const onSubmit = async (data) => {
     setIsLoading(true);
     console.log("🚀 ~ onSubmit ~ data:", data)
+    await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    await sendEmail(data, TYPE.SUPPORT);
+    // await sendEmail(data, TYPE.SUPPORT);
     reset(); // Reset form after success
     setIsLoading(false)
   };
@@ -136,9 +137,9 @@ const Contact = () => {
 
                 {/* Status & Submit */}
                 <div className="col-md-12 text-center">
-                  {isLoading && <div className="loading">Loading</div>}
-                  <button type="submit" disabled={isLoading}>
-                    {isLoading ? "Sending..." : "Send Message"}
+                  {isSubmitting && <div className="loading">Loading</div>}
+                  <button type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </button>
                 </div>
               </div>

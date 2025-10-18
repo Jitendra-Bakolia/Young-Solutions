@@ -1,6 +1,7 @@
 import { lazy } from 'react'
 
 const LandingPage = lazy(() => import('@/components/unprotected/landing-page/LandingPage'));
+const CartPage = lazy(() => import('@/components/unprotected/cart-page/CartPage'));
 
 /**
  * @type {import('react-router-dom').RouteObject[]}
@@ -8,6 +9,7 @@ const LandingPage = lazy(() => import('@/components/unprotected/landing-page/Lan
 const UnProtectedRoutes = [
 
     { path: "/", element: <LandingPage /> },
+    { path: "/cart", element: <CartPage /> },
 
 
     // { path: "/", element: <Enroll type={""} /> },
