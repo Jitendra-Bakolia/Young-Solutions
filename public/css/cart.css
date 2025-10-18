@@ -71,40 +71,36 @@ button.no-underline:focus {
   text-decoration: none !important;
 }
 
+/* ✅ Rupee icon inside mobile input */
+.price-wrapper-mobile {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
 .price-wrapper-mobile .price-symbol {
-  left: 10px;
+  position: absolute;
+  left: 12px;
   top: 50%;
   transform: translateY(-50%);
-  font-weight: bold;
+  font-weight: 600;
   color: #6c757d;
   pointer-events: none;
 }
 
-.total-mobile {
-  font-size: 1rem;
+/* ✅ Center price input content */
+.form-control.text-center {
+  text-align: center !important;
 }
 
-/* Responsive */
-@media (max-width: 991px) {
-  .cart-totals-card {
-    position: static;
-    margin-top: 20px;
-    width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
+/* ✅ Responsive behaviour */
+@media (max-width: 767px) {
   .cart-header {
     display: none;
   }
 
-  .price-wrapper {
-    display: none !important;
-  }
-
   .price-wrapper-mobile {
     display: block !important;
-    width: 100%;
   }
 
   .cart-item input,
@@ -113,8 +109,17 @@ button.no-underline:focus {
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .price-wrapper-mobile {
     display: none !important;
   }
 }
+
+@media (max-width: 991px) {
+  .cart-totals-card {
+    position: static;
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+
