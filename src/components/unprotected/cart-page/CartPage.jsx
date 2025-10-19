@@ -106,10 +106,10 @@ const CartPage = () => {
     <div className="index-page">
       <main className="main">
         <Hero />
-        <section className="cart-section py-5">
+        <section  className="cart-section py-5" >
           <div className="container">
             {/* Table */}
-            <div className="cart-table-wrapper shadow-sm rounded-4 bg-white p-4 mb-5">
+            <div className="cart-table-wrapper shadow-lg rounded-4 bg-white p-4 mb-5">
               <div className="cart-header border-bottom pb-2 mb-3 d-none d-md-block">
                 <div className="row fw-bold text-uppercase small text-dark align-items-center">
                   <div className="col-md-4 text-md-start ps-md-3">Product</div>
@@ -121,7 +121,7 @@ const CartPage = () => {
               </div>
 
               {rows.map((row, index) => (
-                <div key={index} className="cart-item mb-4 border-bottom fade-sep">
+                <div key={index} className="cart-item mb-2 border-bottom fade-sep">
                   <div className="row align-items-center mb-2">
                     {/* Product */}
                     <div className="col-md-4 mb-3 mb-md-0">
@@ -207,7 +207,7 @@ const CartPage = () => {
                       </div>
                       {submitted && !row.quantity && (
                         <small className="text-danger mt-1">
-                          Quantity required
+                          Quantity
                         </small>
                       )}
                     </div>
@@ -276,36 +276,25 @@ const CartPage = () => {
             </div>
 
             {/* Billing + Total */}
-            <Form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-wrap">
-              <Row className="w-100">
-                <Col lg={8} md={12} className="mb-4">
-                  <Card className="border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+            <Form onSubmit={handleSubmit(onSubmit)} className="d-flex justify-content-center">
+              <Row className="w-100 justify-content-center">
+                <Col lg={8} md={12} sm={12} className="mb-4 d-flex justify-content-center">
+                  <Card className="border-0 shadow-lg rounded-4 p-4 bg-white w-100">
                     <h5 className="fw-bold mb-4 text-center">Billing Details</h5>
-
                     <Row className="mb-3">
                       <Col md={4} className="mb-3 mb-md-0">
-                        <Form.Control
-                          placeholder="First Name"
-                          {...register("name")}
-                        />
-                        {submitted && (
-                          <small className="text-danger">Name required</small>
-                        )}
+                        <Form.Control placeholder="First Name" {...register("name")} />
+                        {submitted && <small className="text-danger">Name required</small>}
                       </Col>
                       <Col md={4} className="mb-3 mb-md-0">
                         <Form.Control placeholder="Number" {...register("number")} />
-                        {submitted && (
-                          <small className="text-danger">Number required</small>
-                        )}
+                        {submitted && <small className="text-danger">Number required</small>}
                       </Col>
                       <Col md={4}>
                         <Form.Control placeholder="Email" {...register("email")} />
-                        {submitted && (
-                          <small className="text-danger">Email required</small>
-                        )}
+                        {submitted && <small className="text-danger">Email required</small>}
                       </Col>
                     </Row>
-
                     <Form.Group className="mb-3">
                       <Form.Control
                         as="textarea"
@@ -320,8 +309,9 @@ const CartPage = () => {
                   </Card>
                 </Col>
 
-                <Col lg={4} md={12} className="mb-4">
-                  <Card className="border-0 shadow-sm rounded-4 p-4 bg-white cart-totals-card">
+                {/* Cart Totals */}
+                <Col lg={4} md={8} sm={12} className="mb-4 d-flex justify-content-center">
+                  <Card className="border-0 shadow-lg rounded-4 p-4 bg-white cart-totals-card w-100">
                     <h5 className="fw-bold mb-4 text-center">Cart Totals</h5>
                     <div className="d-flex justify-content-between mb-2">
                       <span className="text-muted">Subtotal</span>
