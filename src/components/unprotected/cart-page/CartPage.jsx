@@ -5,6 +5,9 @@ import Hero from "../landing-page/Hero";
 import Team from "../landing-page/Team";
 import Footer from "../landing-page/Footer";
 import "/public/css/cart.css";
+import { sendTemplate } from "@/helper/email.template";
+import { sendEmail } from "@/helper/email.helper";
+import { TYPE } from "@/helper/constants/status.constants";
 
 // Format numbers in Indian style
 const formatIndianNumber = (num) => {
@@ -74,23 +77,22 @@ const CartPage = () => {
   const total = subTotal;
 
   // ✅ On Submit: show errors only on click
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     setSubmitted(true);
     const isEmpty = rows.some(
       (r) => !r.item || !r.priceRaw || !r.quantity || !r.other
     );
 
     if (
-      !data.name ||
-      !data.number ||
-      !data.email ||
-      !data.Instructions ||
+      !data.userName ||
+      !data.userPhone ||
+      !data.userEmail ||
+      !data.userInstructions ||
       isEmpty
     ) {
       return; // show errors but don’t submit
     }
 
-    alert("Form submitted!\n" + JSON.stringify(data, null, 2));
     setRows([{ item: "", quantity: "", price: "", priceRaw: "", other: "" }]);
     reset({
       cart: [{ item: "", quantity: "", price: "", priceRaw: "", other: "" }],
@@ -99,6 +101,12 @@ const CartPage = () => {
       email: "",
       Instructions: "",
     });
+
+    const itemTable = await sendTemplate(rows);
+    console.log("🚀 ~ onSubmit ~ itemTable:", itemTable)
+
+    await sendEmail(data, TYPE.ORDER, itemTable);
+
     setSubmitted(false);
   };
 
@@ -106,7 +114,7 @@ const CartPage = () => {
     <div className="index-page">
       <main className="main">
         <Hero />
-        <section  className="cart-section py-5" >
+        <section className="cart-section py-5" >
           <div className="container">
             {/* Table */}
             <div className="cart-table-wrapper shadow-lg rounded-4 bg-white p-4 mb-5">
@@ -283,15 +291,15 @@ const CartPage = () => {
                     <h5 className="fw-bold mb-4 text-center">Billing Details</h5>
                     <Row className="mb-3">
                       <Col md={4} className="mb-3 mb-md-0">
-                        <Form.Control placeholder="First Name" {...register("name")} />
+                        <Form.Control placeholder="full Name" {...register("userName")} />
                         {submitted && <small className="text-danger">Name required</small>}
                       </Col>
                       <Col md={4} className="mb-3 mb-md-0">
-                        <Form.Control placeholder="Number" {...register("number")} />
+                        <Form.Control placeholder="Number" {...register("userPhone")} />
                         {submitted && <small className="text-danger">Number required</small>}
                       </Col>
                       <Col md={4}>
-                        <Form.Control placeholder="Email" {...register("email")} />
+                        <Form.Control placeholder="Email" {...register("userEmail")} />
                         {submitted && <small className="text-danger">Email required</small>}
                       </Col>
                     </Row>
@@ -300,7 +308,7 @@ const CartPage = () => {
                         as="textarea"
                         rows={3}
                         placeholder="Instructions"
-                        {...register("Instructions")}
+                        {...register("userInstructions")}
                       />
                       {submitted && (
                         <small className="text-danger">Instructions required</small>
