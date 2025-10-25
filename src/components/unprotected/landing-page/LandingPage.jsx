@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react';
-import Hero from './Hero';
-import About from './About';
-import Stats from './Stats';
-import Services from './Services';
-import Clients from './Clients';
-import Features from './Features';
-import Services2 from './Services2';
-import Testimonials from './Testimonials';
-import Portfolio from './Portfolio';
-import Team from './Team';
-import Contact from './Contact';
-import Footer from './Footer';
+import React, { lazy, useEffect } from 'react';
+const Hero = lazy(() => import("./Hero"));
+const About = lazy(() => import("./About"));
+const Stats = lazy(() => import("./Stats"));
+const Services = lazy(() => import("./Services"));
+const Clients = lazy(() => import("./Clients"));
+const Brands = lazy(() => import("./Brands"));
+const Features = lazy(() => import("./Features"));
+const Services2 = lazy(() => import("./Services2"));
+const Testimonials = lazy(() => import("./Testimonials"));
+const Portfolio = lazy(() => import("./Portfolio"));
+const Team = lazy(() => import("./Team"));
+const Contact = lazy(() => import("./Contact"));
+const Footer = lazy(() => import("./Footer"));
 
 const LandingPage = () => {
   useEffect(() => {
@@ -47,7 +48,7 @@ const LandingPage = () => {
 
     // Check immediately
     checkAndInitLibraries();
-    
+
     // Set up interval to check periodically until libraries are loaded
     const interval = setInterval(() => {
       checkAndInitLibraries();
@@ -69,11 +70,11 @@ const LandingPage = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
+
     // Mobile nav toggle
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
     const navmenu = document.querySelector('#navmenu');
-    
+
     if (mobileNavToggle && navmenu) {
       mobileNavToggle.addEventListener('click', () => {
         navmenu.classList.toggle('mobile-nav-active');
@@ -84,7 +85,7 @@ const LandingPage = () => {
 
     // Dropdown toggle
     document.querySelectorAll('.navmenu .dropdown > a').forEach(dropdownToggle => {
-      dropdownToggle.addEventListener('click', function(e) {
+      dropdownToggle.addEventListener('click', function (e) {
         e.preventDefault();
         this.nextElementSibling.classList.toggle('dropdown-active');
         this.querySelector('.toggle-dropdown').classList.toggle('bi-chevron-up');
@@ -110,6 +111,7 @@ const LandingPage = () => {
         <Services2 />
         <Testimonials />
         <Portfolio />
+        <Brands />
         <Team />
         <Contact />
       </main>

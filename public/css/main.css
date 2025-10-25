@@ -1174,33 +1174,257 @@ section,
 # Clients Section
 --------------------------------------------------------------*/
 .clients {
-  padding: 20px 0;
+  padding: 50px 0;
+  background: #f9f9f9;
+  overflow: hidden;
+  position: relative;
 }
 
-.clients .client-logo {
+.logo-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-track {
+  display: flex;
+  width: calc(300px * 26); /* adjust for number of logos */
+  animation: scroll 25s linear infinite;
+}
+
+/* Pause animation on hover like Brands section */
+.logo-slider:hover .logo-track {
+  animation-play-state: paused;
+}
+
+.client-logo {
+  flex: 0 0 auto;
+  width: 300px; /* increased width */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-.clients .client-logo img {
+.client-logo img {
+  max-height: 120px; /* increased height */
+  max-width: 200px; /* increased width */
+  padding: 20px 40px;
+  opacity: 0.7;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+/* Optional small hover scale effect */
+.client-logo img:hover {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.05);
+}
+
+/*--------------------------------------------------------------
+# Clients Section
+--------------------------------------------------------------*/
+.clients {
+  padding: 30px 0;
+  background: #f9f9f9;
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-track {
+  display: flex;
+  width: calc(300px * 26); /* adjust for number of logos */
+  animation: scroll 25s linear infinite;
+}
+
+.logo-slider:hover .logo-track {
+  animation-play-state: paused;
+}
+
+.client-logo {
+  flex: 0 0 auto;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.client-logo img {
+  max-height: 150px;
+  max-width: 200px;
+  padding: 20px 40px;
+  opacity: 0.7;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.client-logo img:hover {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.05);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive Tweaks: Increase logos on smaller screens */
+@media (max-width: 768px) {
+  .client-logo {
+    width: 220px; /* increased width */
+  }
+
+  .client-logo img {
+    padding: 20px;   /* extra padding */
+    max-height: 180px; /* bigger than before */
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-logo {
+    width: 180px; /* increased width for mobile */
+  }
+
+  .client-logo img {
+    padding: 15px;   /* extra padding */
+    max-height: 150px; /* bigger logo */
+    max-width: 180px;
+  }
+}
+
+/* Scrolling Animation */
+.logo-track {
+  display: flex;
+  animation: scroll 25s linear infinite;
+}
+
+.logo-slider:hover .logo-track {
+  animation-play-state: paused;
+}
+
+/*--------------------------------------------------------------
+# Brands Section
+--------------------------------------------------------------*/
+.brands {
+  padding: 30px 0;
+  margin-bottom: 30px;
+  background: #f9f9f9;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Logo Slider Container */
+.brands .logo-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Track that moves continuously */
+.brands .logo-track {
+  display: flex;
+  width: calc(250px * 18); /* (width * number of logos * 2 for smooth infinite loop) */
+  animation: scrollBrands 25s linear infinite;
+}
+
+/* Each Brand Logo Wrapper */
+.brands .brand-logo {
+  flex: 0 0 auto;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Logo Image Styling */
+.brands .brand-logo img {
   padding: 20px 40px;
   max-width: 90%;
-  transition: 0.3s;
-  opacity: 0.5;
-  filter: grayscale(100);
+  max-height: 60px;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+  filter: grayscale(100%);
 }
 
-.clients .client-logo img:hover {
-  filter: none;
+/* Hover Effect */
+.brands .brand-logo img:hover {
   opacity: 1;
+  filter: none;
+  transform: scale(1.05);
 }
 
-@media (max-width: 640px) {
-  .clients .client-logo img {
-    padding: 20px;
+/* ✅ Specific larger logo sizes */
+.brands .brand-logo img.apple {
+  max-height: 90px;
+  max-width: 180px;
+}
+
+.brands .brand-logo img.hp {
+  max-height: 90px;
+  max-width: 180px;
+}
+
+.brands .brand-logo img.lenovo {
+  max-height: 85px;
+  max-width: 175px;
+}
+
+/* Continuous right-to-left scrolling animation */
+@keyframes scrollBrands {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .brands .brand-logo {
+    width: 180px;
+  }
+
+  .brands .brand-logo img {
+    padding: 15px;
+    max-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brands .brand-logo {
+    width: 140px;
+  }
+
+  .brands .brand-logo img {
+    padding: 10px;
+    max-height: 40px;
+  }
+}
+
+/* Optional: reverse scroll direction on hover (nice subtle effect) */
+.brands .logo-slider:hover .logo-track {
+  animation-play-state: paused;
+}
+
+/* Optional subtle background variation for separation */
+.brands.section.light-background {
+  background-color: #f9f9f9;
 }
 
 /*--------------------------------------------------------------
@@ -2157,5 +2381,3 @@ section,
 /* .starter-section {
   Add your styles here
 } */
-
-

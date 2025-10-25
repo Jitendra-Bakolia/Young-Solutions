@@ -6,25 +6,35 @@ const About = () => {
       <div className="container">
         <div className="row gy-4">
           <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3>Voluptatem dignissimos provident laboris nisi ut aliquip ex ea commodo</h3>
+            <h3 className='text-center'>EVOLVE YOUR ACQUIRES</h3>
             <img src="/img/about.jpg" className="img-fluid rounded-4 mb-4" alt="" />
-            <p>Ut fugiat ut sunt quia veniam. Voluptate perferendis perspiciatis quod nisi et. Placeat debitis quia recusandae odit et consequatur voluptatem. Dignissimos pariatur consectetur fugiat voluptas ea.</p>
-            <p>Temporibus nihil enim deserunt sed ea. Provident sit expedita aut cupiditate nihil vitae quo officia vel. Blanditiis eligendi possimus et in cum. Quidem eos ut sint rem veniam qui. Ut ut repellendus nobis tempore doloribus debitis explicabo similique sit. Accusantium sed ut omnis beatae neque deleniti repellendus.</p>
+            <p>Backed by strategic sourcing and bulk procurement capabilities, Young Solutions offers
+              technology products at cost-effective pricing, enabling startups, SMEs, corporates, and
+              government entities to modernize their digital infrastructure efficiently and economically.</p>
+            <p>We specialize in the procurement and distribution of high-quality IT hardware, including
+              laptops, desktops, smartphones, tablets, servers, networking devices, and computer
+              accessories. Our product portfolio consists of globally recognized brands such as Apple,
+              Samsung, HP, Lenovo, Dell, Asus, Acer, Microsoft, Nokia, and several others — ensuring
+              genuine quality and assured performance.</p>
           </div>
           <div className="col-lg-6" data-aos="fade-up" data-aos-delay="250">
             <div className="content ps-0 ps-lg-5">
               <p className="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
+                Our approach is rooted in transparency, trust, and long-term business relationships. We focus
+                not only on supplying products but also on delivering reliable service, timely support, and
+                seamless customer experience.
               </p>
               <ul>
-                <li><i className="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                <li><i className="bi bi-check-circle-fill"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                <li><i className="bi bi-check-circle-fill"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+                <li><i className="bi bi-check-circle-fill"></i> <span>Young Solutions is a technology-driven IT products supplier.</span></li>
+                <li><i className="bi bi-check-circle-fill"></i> <span>Established October 2022 & headquartered in Ghaziabad, UP.</span></li>
+                <li><i className="bi bi-check-circle-fill"></i> <span>Formed as a partnership firm, company is
+                  committed to delivering authentic, reliable, and competitively priced IT solutions to
+                  organizations and customers across India.</span></li>
               </ul>
               <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                Formed as a partnership firm, company is
+                committed to delivering authentic, reliable, and competitively priced IT solutions to
+                organizations and customers across India.
               </p>
 
               <div className="position-relative mt-4">

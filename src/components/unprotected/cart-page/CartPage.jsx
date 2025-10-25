@@ -1,9 +1,9 @@
-import React, { useState, useMemo } from "react";
+import React, { lazy, useState, useMemo } from "react";
 import { Button, Form, Card, InputGroup, Row, Col } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import Hero from "../landing-page/Hero";
-import Team from "../landing-page/Team";
-import Footer from "../landing-page/Footer";
+const Hero = lazy(() => import("../landing-page/Hero"));
+const Team = lazy(() => import("../landing-page/Team"));
+const Footer = lazy(() => import("../landing-page/Footer"));
 import "/public/css/cart.css";
 import { sendTemplate } from "@/helper/email.template";
 import { sendEmail } from "@/helper/email.helper";
@@ -105,16 +105,72 @@ const CartPage = () => {
     const itemTable = await sendTemplate(rows);
     console.log("🚀 ~ onSubmit ~ itemTable:", itemTable)
 
-    await sendEmail(data, TYPE.ORDER, itemTable);
+    // await sendEmail(data, TYPE.ORDER, itemTable);
 
     setSubmitted(false);
   };
+
+
+  // // ✅ On Submit: show errors only on click
+  // const onSubmit = async (data) => {
+  //   setSubmitted(true);
+
+  //   // Check for empty cart rows
+  //   const isEmpty = rows.some(
+  //     (r) => !r.item || !r.priceRaw || !r.quantity || !r.other
+  //   );
+
+  //   // Validate required fields
+  //   if (
+  //     !data.userName ||
+  //     !data.userPhone ||
+  //     !data.userEmail ||
+  //     !data.userInstructions ||
+  //     isEmpty
+  //   ) {
+  //     setSubmitted(false);
+  //     return; // show errors but don’t submit
+  //   }
+
+  //   try {
+  //     // 1️⃣ Generate the order table
+  //     const itemTable = await sendTemplate(rows);
+  //     console.log("🚀 ~ onSubmit ~ itemTable:", itemTable);
+
+  //     // 2️⃣ Send the email (uncomment this in real use)
+  //     await sendEmail(data, TYPE.ORDER, itemTable);
+
+  //     // 3️⃣ After email is sent successfully — reset everything
+  //     setRows([{ item: "", quantity: "", price: "", priceRaw: "", other: "" }]);
+  //     reset({
+  //       userName: "",
+  //       userPhone: "",
+  //       userEmail: "",
+  //       userInstructions: "",
+  //       cart: [{ item: "", quantity: "", price: "", priceRaw: "", other: "" }],
+  //     });
+
+  //     toast.success("✅ Order placed successfully!");
+  //   } catch (error) {
+  //     console.error("❌ Error sending email or saving order:", error);
+  //     toast.error("Failed to send order. Please try again.");
+  //   } finally {
+  //     setSubmitted(false);
+  //   }
+  // };
 
   return (
     <div className="index-page">
       <main className="main">
         <Hero />
-        <section className="cart-section py-5" >
+        <h2
+          className="text-center text-secondary py-4"
+          style={{ fontWeight: 700 }}
+        >
+          <i className="bi bi-cart3 me-2"></i>
+          SHOPPING CART FORM
+        </h2>
+        <section className="cart-section py-3" >
           <div className="container">
             {/* Table */}
             <div className="cart-table-wrapper shadow-lg rounded-4 bg-white p-4 mb-5">
@@ -356,3 +412,4 @@ const CartPage = () => {
 };
 
 export default CartPage;
+
