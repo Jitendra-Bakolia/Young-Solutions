@@ -14,13 +14,13 @@ const Footer = () => {
         <div className="row gy-4">
           <div className="col-lg-4 col-md-6 footer-about">
             <a href="#hero" className="logo d-flex align-items-center">
-              <span className="sitename">Dewi</span>
+              <span className="sitename">Young Solutions</span>
             </a>
             <div className="footer-contact pt-3">
-              <p>A108 Adam Street</p>
-              <p>New York, NY 535022</p>
-              <p className="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-              <p><strong>Email:</strong> <span>info@example.com</span></p>
+              <p>F-323 B, Sector-11, Pratap Vihar</p>
+              <p>Ghaziabad, Uttar Pradesh – 201009</p>
+              <p className="mt-3"><strong>Phone:</strong> <span>+91 70119 88749</span></p>
+              <p><strong>Email:</strong> <span>youngsolutions27@gmail.com</span></p>
             </div>
             <div className="social-links d-flex mt-4">
               <a href="#"><i className="bi bi-twitter-x"></i></a>
@@ -35,9 +35,9 @@ const Footer = () => {
             <ul>
               <li><i className="bi bi-chevron-right"></i> <a href="#hero">Home</a></li>
               <li><i className="bi bi-chevron-right"></i> <a href="#about">About us</a></li>
-              <li><i className="bi bi-chevron-right"></i> <a href="#services">Services</a></li>
-              <li><i className="bi bi-chevron-right"></i> <a href="#contact">Terms of service</a></li>
-              <li><i className="bi bi-chevron-right"></i> <a href="#contact">Privacy policy</a></li>
+              <li><i className="bi bi-chevron-right"></i> <a href="#features">Services</a></li>
+              <li><i className="bi bi-chevron-right"></i> <a href="#services">Terms of service</a></li>
+              <li><i className="bi bi-chevron-right"></i> <a href="#services">Privacy policy</a></li>
             </ul>
           </div>
 
@@ -69,7 +69,7 @@ const Footer = () => {
       </div>
 
       <div className="container copyright text-center mt-4">
-        <p>© <span>Copyright</span> <strong className="px-1 sitename">Dewi</strong> <span>All Rights Reserved</span></p>
+        <p>© <span>Copyright</span> <strong className="px-1 sitename">Young Solutions</strong> <span>All Rights Reserved</span></p>
         <div className="credits">
           Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a>
         </div>

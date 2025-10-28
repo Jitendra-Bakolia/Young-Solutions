@@ -1,0 +1,86 @@
+/* ---------- General Page Styling ---------- */
+.TermsConditions-page {
+  font-family: "Georgia", "Times New Roman", serif;
+  color: #1a1a1a;
+  background-color: #fff;
+}
+
+/* ---------- Header Section ---------- */
+.TermsConditions-header {
+  background-color: #0b2447;
+  color: #fff;
+  padding: 60px 20px 40px;
+  text-align: left;
+  border-bottom: 5px solid #d4af37;
+}
+
+.TermsConditions-breadcrumb {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.TermsConditions-breadcrumb a {
+  color: #9cb3d8;
+  text-decoration: none;
+}
+
+.TermsConditions-breadcrumb span {
+  color: #fff;
+}
+
+.TermsConditions-title {
+  font-size: 40px;
+  font-weight: 600;
+  margin: 100px 0px 10px 0px;
+  border-left: 4px solid #d4af37;
+  padding-left: 15px;
+}
+
+.TermsConditions-update {
+  font-size: 16px;
+  color: #d1d1d1;
+  margin-top: 5px;
+}
+
+/* ---------- Content Section ---------- */
+.TermsConditions-content {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+.TermsConditions-content h2 {
+  font-size: 24px;
+  color: #0b2447;
+  margin-top: 40px;
+  border-bottom: 2px solid #d4af37;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.TermsConditions-content ul {
+  list-style: disc;
+  margin-left: 25px;
+}
+
+.TermsConditions-content a {
+  color: #0b5ed7;
+  text-decoration: none;
+}
+
+.TermsConditions-content a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .TermsConditions-title {
+    font-size: 30px;
+  }
+
+  .TermsConditions-content {
+    font-size: 16px;
+  }
+}

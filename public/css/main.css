@@ -1170,6 +1170,19 @@ section,
   transform: scale(1.2);
 }
 
+.services .details .read-more {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--accent-color);
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.services .details .read-more:hover {
+  text-decoration: underline;
+}
+
 /*--------------------------------------------------------------
 # Clients Section
 --------------------------------------------------------------*/
@@ -1951,6 +1964,21 @@ section,
 
 .contact .php-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.policy-container {
+  background: #f9f9f9;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.policy-container h4 {
+  color: #333;
+}
+
+.policy-container p {
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 /*--------------------------------------------------------------

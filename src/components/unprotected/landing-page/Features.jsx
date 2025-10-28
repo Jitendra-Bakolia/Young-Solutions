@@ -7,49 +7,55 @@ const Features = () => {
     {
       id: 'features-tab-1',
       icon: 'bi-binoculars',
-      title: 'Modi sit est dela pireda nest',
-      heading: 'Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.',
+      title: 'Why Choose Young Solutions',
+      // heading: 'Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.',
       content: {
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        // description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         points: [
-          'Ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          'Duis aute irure dolor in reprehenderit in voluptate velit.',
-          'Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.'
+          '100% Genuine &amp; Brand-Sealed Products.',
+          'Competitive Pricing Supported by Bulk Procurement.',
+          'Transparent Dealings with No Hidden Costs.',
+          'Capability to Serve Individuals, Enterprises &amp; Government Buyers.',
+          'Consistent Availability of Stock &amp; Quick Delivery.',
+          'Dedicated Customer Assistance &amp; After-Sales Support.',
         ],
-        paragraph: 'Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        // paragraph: 'Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
         image: '/img/working-1.jpg'
       }
     },
     {
       id: 'features-tab-2',
       icon: 'bi-box-seam',
-      title: 'Unde praesenti mara setra le',
-      heading: 'Neque exercitationem debitis soluta quos debitis quo mollitia officia est',
+      title: 'Certifications and; Compliance',
+      // heading: 'Neque exercitationem debitis soluta quos debitis quo mollitia officia est',
       content: {
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        // description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         points: [
-          'Ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          'Duis aute irure dolor in reprehenderit in voluptate velit.',
-          'Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.',
-          'Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.'
+          'MSME Registered Organization.',
+          'GST Registered (09AADFY0685N1ZH).',
+          'GEM Vendor (Rating Above 4.9).',
+          'Authorized Brand Dealer / Partner Credentials.',
+          'ISO Certified Operational Standards.',
         ],
-        paragraph: 'Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        // paragraph: 'Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
         image: '/img/working-2.jpg'
       }
     },
     {
       id: 'features-tab-3',
       icon: 'bi-brightness-high',
-      title: 'Pariatur explica nitro dela',
-      heading: 'Voluptatibus commodi ut accusamus ea repudiandae ut autem dolor ut assumenda',
+      title: 'Client Trust and Testimonials',
+      heading: 'We proudly serve a growing base of clients, including:',
       content: {
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        // description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         points: [
-          'Ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          'Duis aute irure dolor in reprehenderit in voluptate velit.',
-          'Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.'
+          'Corporate Offices.',
+          'Educational Institutions.',
+          'IT and; Software Companies.',
+          'Traders and; System Integrators.',
+          'Government Procurement Departments.',
         ],
-        paragraph: 'Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        // paragraph: 'Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
         image: '/img/working-3.jpg'
       }
     },

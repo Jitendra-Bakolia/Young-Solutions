@@ -32,9 +32,8 @@ const About = () => {
                   organizations and customers across India.</span></li>
               </ul>
               <p>
-                Formed as a partnership firm, company is
-                committed to delivering authentic, reliable, and competitively priced IT solutions to
-                organizations and customers across India.
+                Driven by innovation and reliability, we continuously strive to build long-term
+                relationships with our customers through quality products and seamless service.
               </p>
 
               <div className="position-relative mt-4">
