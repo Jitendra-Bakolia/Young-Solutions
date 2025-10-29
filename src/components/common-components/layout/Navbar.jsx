@@ -121,7 +121,7 @@ const Header = () => {
       <div className="container-fluid container-xl position-relative d-flex align-items-center">
         <a href="#hero" className="logo d-flex align-items-center me-auto" onClick={handleLogoClick}>
           <img src="/img/Young-Solutions-Nav.png" alt="Logo" />
-          <span className="site-name">Young Solutions</span>
+          {/* <span className="site-name">Young Solutions</span> */}
         </a>
 
         <nav id="navmenu" className="navmenu">
